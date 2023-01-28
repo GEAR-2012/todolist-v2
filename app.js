@@ -43,7 +43,7 @@ async function main() {
           console.error(e.message);
         }
       } else {
-        res.render("list", { listTitle: "Today", newListItems: foundItems });
+        res.render("list", { listTitle: "Yesterday", newListItems: foundItems });
       }
     });
 
@@ -124,7 +124,7 @@ async function connect() {
   const userName = process.env.USER_NAME;
   const dbPassword = process.env.DB_PASSWORD;
   const dbName = process.env.DB_NAME;
-  
+
   const uri = `mongodb+srv://${userName}:${dbPassword}@cluster0.i8f6e4b.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 
   await mongoose.connect(uri);
